@@ -1,7 +1,7 @@
 import { ColorModeContext, useMode } from '../../theme';
 import { CssBaseline, ThemeProvider } from '@mui/material';
-import Topbar from '../../pages/global/Topbar';
-import Sidebar from '../../pages/global/Sidebar';
+import Topbar from '../../pages/Global/Topbar';
+import Sidebar from '../../pages/Global/Sidebar';
 import { Outlet, useNavigate } from 'react-router-dom';
 import { useContext, useEffect } from 'react';
 import { AuthContext } from '../../context/AuthContext';
