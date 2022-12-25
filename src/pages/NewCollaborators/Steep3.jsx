@@ -4,9 +4,7 @@ import React, { useState } from 'react';
 const Steep3 = () => {
   return (
     <>
-      <h1>
-        ok
-      </h1>
+      <h1>ok</h1>
     </>
   );
 };

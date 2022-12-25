@@ -48,7 +48,6 @@ const NewCollaborators = () => {
         maxWidth: '800px',
         padding: 7,
         bgcolor: 'background.default'
-        
       }}
     >
       <Stepper activeStep={activeStep} orientation="horizontal">
