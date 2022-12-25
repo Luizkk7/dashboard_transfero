@@ -1,0 +1,6 @@
+@host=https://sso-lastec.azurewebsites.net
+
+GET {{host}}/api/login/listaConfiguracao?tokenSistema=6bef6bd2-f6f1-11ec-b32c-566fe1410274
+Content-Type: application/json
+
+###
