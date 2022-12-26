@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import * as Yup from 'yup';
 import { useFormik } from 'formik';
-import { Box } from '@mui/material';
+import { Box, Card } from '@mui/material';
 import {
   Stepper,
   Step,
@@ -10,7 +10,6 @@ import {
   FormHelperText,
   Button
 } from '@mui/material';
-
 import Header from '../../components/Header';
 import Steep1 from './Steep1';
 import Steep2 from './Steep2';
@@ -34,7 +33,7 @@ const NewCollaborators = () => {
       case 0:
         return <Steep1 handleBack={handleBack} handleNext={handleNext} />;
       case 1:
-        return <Steep2 />;
+        return <Steep2 handleBack={handleBack} handleNext={handleNext} />;
       case 2:
         return <Steep3 />;
       default:
@@ -48,7 +47,6 @@ const NewCollaborators = () => {
         maxWidth: '800px',
         padding: 7,
         bgcolor: 'background.default'
-        
       }}
     >
       <Stepper activeStep={activeStep} orientation="horizontal">

@@ -21,6 +21,7 @@ const Steep2 = ({ handleNext = () => {}, handleBack = () => {} }) => {
     let tokenConvert = localStorage.getItem('token');
     let tokenParse = JSON.parse(tokenConvert);
     let token = tokenParse.token;
+
     api
       .post(
         `/user_permissions`,
@@ -30,7 +31,7 @@ const Steep2 = ({ handleNext = () => {}, handleBack = () => {} }) => {
         },
         {
           headers: {
-            'Content-Type': 'application/json',
+            'content-Type': 'application/json',
             Authorization: `Bearer ${token}`
           }
         }

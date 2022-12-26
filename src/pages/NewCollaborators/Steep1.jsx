@@ -6,6 +6,8 @@ import api from '@api/index';
 import regex from '../../utils/regex';
 import Typography from '@mui/material/Typography';
 import toast from '../../functions/toast';
+import MiddleDividers from '@components/Card/Card';
+
 const Steep1 = ({ handleNext = () => {}, handleBack = () => {} }) => {
   const form = useForm();
   const [loading, setLoading] = useState(false);
