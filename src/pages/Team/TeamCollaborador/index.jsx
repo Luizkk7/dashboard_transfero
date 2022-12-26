@@ -5,7 +5,6 @@ import { mockDataTeam } from '../../../data/mockData';
 import { useTheme } from '@mui/material';
 import { tokens } from '../../../theme';
 
-
 const columns = [
   { headerName: 'ID', flex: 0.5 },
 
@@ -36,7 +35,6 @@ const TeamCollaborador = (props) => {
     <Box
       m="4px 1 2 0"
       height="60vh"
-      
       sx={{
         '& .MuiDataGrid-root': {
           border: 'none'
@@ -67,7 +65,6 @@ const TeamCollaborador = (props) => {
       }}
     >
       <DataGrid
-        
         pageSize={5}
         rowsPerPageOptions={[5]}
         checkboxSelection
