@@ -7,7 +7,7 @@ import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
-import TeamCollaborador from '../../team/TeamCollaborador/index';
+import TeamCollaborador from '../../Team/TeamCollaborador/index';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
