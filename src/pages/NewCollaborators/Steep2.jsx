@@ -24,15 +24,17 @@ const Steep2 = ({ handleNext = () => {}, handleBack = () => {} }) => {
 
     api
       .post(
-        `/user_permissions`,
+        `user_permissions/`,
         {
           user_id: '',
-          paper_id: ''
+          paper_id: '',
         },
         {
+          redirect : "follow",
           headers: {
             'content-Type': 'application/json',
-            Authorization: `Bearer ${token}`
+            Authorization: `Bearer ${token}`,
+            "accept" : "application/json"
           }
         }
       )
