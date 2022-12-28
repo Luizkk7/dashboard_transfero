@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import LoginPage from '../pages/LoginPage';
 import AppComponent from '../pages/App/AppComponent';
-import Team from '../pages/team';
+import Team from '../pages/Team';
 import AuthenticatedRoutes from './private.routes';
 import NewCollaborators from '../pages/NewCollaborators';
 import ResetPassword from '../pages/ResetLogin/ResetPassword';

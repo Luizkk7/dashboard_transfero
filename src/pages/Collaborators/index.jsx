@@ -8,24 +8,19 @@ import SecurityOutlinedIcon from '@mui/icons-material/SecurityOutlined';
 import Header from '../../components/Header';
 import Button from '@mui/material';
 
-
-
-
 const handleClick = () => {
   return console.log('handleClick');
 };
 
 const handleRowClick = () => {
   return console.log('handleRowClick');
-  
 };
 
 const Team = () => {
-  
   const theme = useTheme();
 
   const colors = tokens(theme.palette.mode);
-  
+
   const rows = [
     { field: 'id', headerName: 'ID' },
 
@@ -45,10 +40,9 @@ const Team = () => {
       field: 'accessLevel',
       headerName: 'Access Level',
       flex: 1,
-      
+
       renderCell: ({ row: { access } }) => {
         return (
-          
           <Box
             width="60%"
             m="0 auto"
@@ -136,7 +130,6 @@ const Team = () => {
         />
       </Box>
     </Box>
-    
   );
 };
 
