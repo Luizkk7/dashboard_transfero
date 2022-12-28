@@ -23,7 +23,7 @@ const Steep2 = ({ handleNext = () => {}, handleBack = () => {} }) => {
     let userId = localStorage.getItem('user_id');
     let tokenParse = JSON.parse(tokenConvert);
     let token = tokenParse.token;
-    let GuardarPapers = [331, 652]
+    let savePapers = []
 
 
     api
@@ -31,7 +31,7 @@ const Steep2 = ({ handleNext = () => {}, handleBack = () => {} }) => {
         `user_permissions/`,
         {
           user_id: `${userId}`,
-          paper_id: `${GuardarPapers}`,
+          paper_id: `${savePapers}`,
         },
         {
           redirect : "follow",

@@ -56,9 +56,6 @@
     "prettier": "^2.8.1",
     "vite": "^4.0.0",
     "vite-jsconfig-paths": "^2.0.1"
-<<<<<<< HEAD
     
-=======
->>>>>>> 621867b98523f27cf5c2fdfe4ac03a6873d1881c
   }
 }

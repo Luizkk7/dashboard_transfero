@@ -13,7 +13,7 @@ export default function SimpleAccordion() {
 
   const getPapers = async () => {
     api
-      .get('/papers')   
+      .get('/papers')
       .then((data) => {
         console.log('success', data);
       })
