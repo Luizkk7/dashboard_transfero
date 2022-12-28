@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { Grid, TextField, Button } from '@mui/material';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
@@ -16,18 +17,21 @@ const Steep2 = ({ handleNext = () => {}, handleBack = () => {} }) => {
   const form = useForm();
   const [loading, setLoading] = useState(false);
 
-  const handleSubmit = form.handleSubmit(async (data) => {
+  const handleSubmit = form.handleSubmit(async () => {
     setLoading(true);
     let tokenConvert = localStorage.getItem('token');
+    let userId = localStorage.getItem('user_id');
     let tokenParse = JSON.parse(tokenConvert);
     let token = tokenParse.token;
+    let GuardarPapers = [331, 652]
+
 
     api
       .post(
         `user_permissions/`,
         {
-          user_id: '',
-          paper_id: '',
+          user_id: `${userId}`,
+          paper_id: `${GuardarPapers}`,
         },
         {
           redirect : "follow",
@@ -42,8 +46,11 @@ const Steep2 = ({ handleNext = () => {}, handleBack = () => {} }) => {
         toast.success('Papers successfully saved');
         console.log(resp);
         if (resp !== null) {
+          localStorage.setItem('user_id', resp.data.user_id);
+          
           return handleNext();
-        }
+          
+        } 
       })
       .catch((error) => {
         toast.error('unsaved papers');

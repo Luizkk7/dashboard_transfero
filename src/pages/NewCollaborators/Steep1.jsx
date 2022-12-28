@@ -26,6 +26,7 @@ const Steep1 = ({ handleNext = () => {}, handleBack = () => {} }) => {
       .then((resp) => {
         toast.success('Successfully Authenticated User');
         if (resp !== null) {
+          localStorage.setItem('user_id', resp.data.user_id);
           return handleNext();
         }
       })
