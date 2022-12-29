@@ -23,9 +23,15 @@ function SimpleDialog(props) {
   );
 }
 
-export default function CheckboxList({ papers }) {
-  // const [checked, setChecked] = React.useState([0]);
+export default function CheckboxList({ papersProp, onChangeCheck }) {
+  const [papers, setPapers] = React.useState(papersProp || []);
   const [open, setOpen] = React.useState(false);
+
+  useEffect(() => {
+    // get only checkeds
+   const onlyChecked =  papers.filter((paper) => paper.checked)
+    onChangeCheck(onlyChecked || []);
+  }, [papers]);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -35,30 +41,15 @@ export default function CheckboxList({ papers }) {
     setOpen(false);
   };
 
-  // const handleToggle = (value) => () => {
-  //   const currentIndex = checked.indexOf(value);
-  //   const newChecked = [...checked];
-
-  //   if (currentIndex === -1) {
-  //     newChecked.push(value);
-  //   } else {
-  //     newChecked.splice(currentIndex, 1);
-  //   }
-
-  //   setChecked(newChecked);
-  // };
-
-  // async function name1() {
-  //   let name = await props.paperName1;
-  // }
-
-  // useEffect(() => {
-  //   name1();
-  // });
+  const handleChange = (event, index) => {
+    const papersArr = [...papers];
+    papersArr[index].checked = event.target.checked;
+    setPapers(papersArr);
+  };
 
   return (
     <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
-      {papers.map((paper) => {
+      {papers.map((paper, index) => {
         const labelId = `checkbox-list-label-${paper.paper_id}`;
 
         return (
@@ -74,23 +65,19 @@ export default function CheckboxList({ papers }) {
             }
             disablePadding
           >
-            <ListItemButton
-              role={undefined}
-              color="success"
-              // onClick={handleToggle(value)}
-              dense
-            >
+            <ListItemButton role={undefined} color="success" dense>
               <ListItemIcon>
                 <Checkbox
                   edge="start"
-                  // checked={checked.indexOf(value) !== -1}
                   tabIndex={-1}
                   disableRipple
                   color="success"
                   inputProps={{ 'aria-labelledby': labelId }}
+                  checked={paper.checked}
+                  onChange={(event) => handleChange(event, index)}
                 />
               </ListItemIcon>
-              <ListItemText id={labelId} primary={paper.paper_name} />
+              <ListItemText id={labelId} primary={paper.name} />
             </ListItemButton>
           </ListItem>
         );

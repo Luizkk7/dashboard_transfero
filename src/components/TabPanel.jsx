@@ -42,7 +42,7 @@ function a11yProps(index) {
   };
 }
 
-export default function FullWidthTabs() {
+export default function FullWidthTabs({onChangeCheck}) {
   const theme = useTheme();
   const [value, setValue] = React.useState(0);
 
@@ -74,7 +74,11 @@ export default function FullWidthTabs() {
         onChangeIndex={handleChangeIndex}
       >
         <TabPanel value={value} index={0} dir={theme.direction}>
-          <SimpleAccordion />
+          <SimpleAccordion
+            onChangeCheck={(paperChecked) => {
+              onChangeCheck(paperChecked || []);
+            }}
+          />
         </TabPanel>
       </SwipeableViews>
     </Box>

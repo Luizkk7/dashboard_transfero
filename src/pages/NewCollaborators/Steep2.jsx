@@ -16,6 +16,7 @@ import Tabpanel from '../../components/TabPanel';
 const Steep2 = ({ handleNext = () => {}, handleBack = () => {} }) => {
   const form = useForm();
   const [loading, setLoading] = useState(false);
+  const [papers, setPapers] = useState([]);
 
   const handleSubmit = form.handleSubmit(async () => {
     setLoading(true);
@@ -23,22 +24,21 @@ const Steep2 = ({ handleNext = () => {}, handleBack = () => {} }) => {
     let userId = localStorage.getItem('user_id');
     let tokenParse = JSON.parse(tokenConvert);
     let token = tokenParse.token;
-    let savePapers = []
-
+    let savePapers = [];
 
     api
       .post(
         `user_permissions/`,
         {
           user_id: `${userId}`,
-          paper_id: `${savePapers}`,
+          paper_id: `${savePapers}`
         },
         {
-          redirect : "follow",
+          redirect: 'follow',
           headers: {
             'content-Type': 'application/json',
             Authorization: `Bearer ${token}`,
-            "accept" : "application/json"
+            accept: 'application/json'
           }
         }
       )
@@ -47,10 +47,9 @@ const Steep2 = ({ handleNext = () => {}, handleBack = () => {} }) => {
         console.log(resp);
         if (resp !== null) {
           localStorage.setItem('user_id', resp.data.user_id);
-          
+
           return handleNext();
-          
-        } 
+        }
       })
       .catch((error) => {
         toast.error('unsaved papers');
@@ -62,7 +61,12 @@ const Steep2 = ({ handleNext = () => {}, handleBack = () => {} }) => {
     <Grid container>
       <Typography variant="h2"> Account Information </Typography>
       <Typography variant="h5"> Update your account information </Typography>
-      <Tabpanel />
+      <Tabpanel
+        onChangeCheck={(paperChecked) => {
+          console.log(paperChecked);
+          setPapers(paperChecked);
+        }}
+      />
 
       <Grid item xs={12}>
         <Button
